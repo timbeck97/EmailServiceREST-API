@@ -4,12 +4,13 @@ import com.emailservice.enums.StatusEmail;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 public class EmailEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long emailId;
+    private UUID emailId;
     private String ownerName;
     private String emailTo;
     private String emailFrom;
@@ -23,7 +24,7 @@ public class EmailEntity {
 
     }
 
-    public EmailEntity(Long emailId, String ownerName, String emailTo, String emailFrom, String subject, String emailText, LocalDate dateEmailSend, StatusEmail statusEmail) {
+    public EmailEntity(UUID emailId, String ownerName, String emailTo, String emailFrom, String subject, String emailText, LocalDate dateEmailSend, StatusEmail statusEmail) {
         this.emailId = emailId;
         this.ownerName = ownerName;
         this.emailTo = emailTo;
@@ -34,11 +35,11 @@ public class EmailEntity {
         this.statusEmail = statusEmail;
     }
 
-    public Long getEmailId() {
+    public UUID getEmailId() {
         return emailId;
     }
 
-    public void setEmailId(Long emailId) {
+    public void setEmailId(UUID emailId) {
         this.emailId = emailId;
     }
 
